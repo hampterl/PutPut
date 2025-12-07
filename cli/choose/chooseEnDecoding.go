@@ -14,18 +14,23 @@ func ChooseEnDecoding() {
 
 	input := strings.TrimSpace(scanner.Text())
 
-	switch input {
-	case "1":
-		cli.UseBase64()
-		break
-	case "2":
-		fmt.Print("Coming soon!")
-		break
-	case "0":
-		fmt.Print("Exiting...")
-		break
-	default:
-		fmt.Print("Invalid option")
-		break
+	for {
+		switch input {
+		case "1":
+			cli.UseBase64()
+			return
+		case "2":
+			cli.UseHex()
+			return
+		case "0":
+			fmt.Print("Press enter to return to main menu...")
+			return
+			fmt.Print("problem in choose")
+		default:
+			fmt.Print("Invalid option")
+			scanner.Scan()
+			input = strings.TrimSpace(scanner.Text())
+			break
+		}
 	}
 }

@@ -24,10 +24,10 @@ func Loop() {
 
 		switch input {
 		case "1":
-			fmt.Print("|1|: Base64\n|2|: Coming soon!\n|0|: Back\n>")
+			fmt.Print("|1|: Base64\n|2|: Hex\n|0|: Back\n> ")
 			choose.ChooseEnDecoding()
 		case "2":
-			fmt.Print("Coming soon!")
+			fmt.Print("Comming soon!")
 		case "0":
 			fmt.Print("Exiting...")
 			return
