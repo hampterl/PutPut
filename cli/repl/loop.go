@@ -1,6 +1,7 @@
 package repl
 
 import (
+	"PutPut/cli/choose"
 	"bufio"
 	"fmt"
 	"os"
@@ -23,12 +24,15 @@ func Loop() {
 
 		switch input {
 		case "1":
-			fmt.Println("Option 1 selected")
+			fmt.Print("|1|: Base64\n|2|: Coming soon!\n|0|: Back\n>")
+			choose.ChooseEnDecoding()
+		case "2":
+			fmt.Print("Coming soon!")
 		case "0":
-			fmt.Println("Exiting...")
+			fmt.Print("Exiting...")
 			return
 		default:
-			fmt.Println("Invalid option")
+			fmt.Print("Invalid option")
 		}
 		scanner.Scan()
 	}
