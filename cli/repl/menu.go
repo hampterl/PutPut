@@ -14,4 +14,5 @@ func Menu() {
 		"       |_|    \\                ____         /    /   \\ \n",
 		"                \\__        __/      \\ ____ /\n",
 		"                   _______\n")
+	fmt.Println("Welcome to PutPut!\n|1|: Start\n|0|: Exit")
 }

@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	repl.Menu()
+	repl.Loop()
 
 }
