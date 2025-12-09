@@ -8,25 +8,28 @@ import (
 	"strings"
 )
 
-func ChooseEnDecoding() {
+func ChooseEnDecryption() {
 	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
+
+	if !scanner.Scan() {
+		return
+	}
 
 	input := strings.TrimSpace(scanner.Text())
 
 	for {
 		switch input {
 		case "1":
-			cli.UseBase64()
+			cli.UseAes256()
 			return
 		case "2":
-			cli.UseHex()
+			fmt.Println("Not yet implemented")
 			return
 		case "0":
-			fmt.Print("Press enter to return to main menu...")
+			fmt.Println("Press enter to return to main menu...")
 			return
 		default:
-			fmt.Print("Invalid option! Choose from these options:\n|1|: Base64\n|2|: Hex\n|0|: Back\n> ")
+			fmt.Print("Invalid option! Choose from these options:\n|1|: Aes256\n|2|: Comming Soon\n|0|: Back\n> ")
 			scanner.Scan()
 			input = strings.TrimSpace(scanner.Text())
 			break

@@ -27,12 +27,13 @@ func Loop() {
 			fmt.Print("|1|: Base64\n|2|: Hex\n|0|: Back\n> ")
 			choose.ChooseEnDecoding()
 		case "2":
-			fmt.Print("Comming soon!")
+			fmt.Print("|1|: Aes256\n|2|: Coming soon!\n|0|: Back\n> ")
+			choose.ChooseEnDecryption()
 		case "0":
 			fmt.Print("Exiting...")
 			return
 		default:
-			fmt.Print("Invalid option")
+			fmt.Print("Invalid option! Press enter to return to main menu...")
 		}
 		scanner.Scan()
 	}
