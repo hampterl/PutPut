@@ -24,11 +24,14 @@ func Loop() {
 
 		switch input {
 		case "1":
-			fmt.Print("|1|: Base64\n|2|: Hex\n|0|: Back\n> ")
+			fmt.Print("|1|: Base64\n|2|: Hex\n\n|0|: Back\n> ")
 			choose.ChooseEnDecoding()
 		case "2":
-			fmt.Print("|1|: Aes256\n|2|: Coming soon!\n|0|: Back\n> ")
+			fmt.Print("|1|: Aes256\n|2|: Coming soon!\n\n|0|: Back\n> ")
 			choose.ChooseEnDecryption()
+		case "3":
+			fmt.Println("|1|: SHA256\n|2|: Coming soon!\n\n|0|: Back\n> ")
+			choose.ChooseHashing()
 		case "0":
 			fmt.Print("Exiting...")
 			return

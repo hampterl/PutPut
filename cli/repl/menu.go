@@ -2,6 +2,7 @@ package repl
 
 import (
 	"fmt"
+
 	"github.com/fatih/color"
 )
 
@@ -23,7 +24,7 @@ func Menu() {
 		blue("                 /       \\          /      \\ 				\n"),
 		blue("               /            \\ ____ /         ___ \\   /			")+red("|1|:")+" Encode/Decode\n",
 		blue("             / ___      ____ ___      ____  ==   _\\_/_			")+red("|2|:")+" Encrypt/Decrypt\n",
-		blue("          __  |___||   | |  |___||   | |            | |		")+red("|3|:")+" Coming Soon\n",
+		blue("          __  |___||   | |  |___||   | |            | |		")+red("|3|:")+" Hashing\n",
 		blue("        / __  |    |___| |  |    |___| |    ==   _____			")+red("|4|:")+" Coming Soon\n",
 		blue("       | |  \\-----------------------------   ___  / \\ 			")+red("|5|:")+" Coming Soon\n",
 		blue("       |_|    \\                ____         /    /   \\ 		")+red("|0|:")+" Exit\n",

@@ -91,12 +91,12 @@ Here an example of how it would look:
 |4|: Decrypt File with aes256  
 |0|: Return to main menu\n>
 \> 3  
------------------------------------------------------------------------  
+
 Instructions in README.md!  
 DISCLAIMER AND WARNING:  
 This WILL encrypt the file you chose! IF you lose your key and overwrite your original, you will NOT be able to decrypt the file!  
 Never share your key with anyone! Make a backup before encrypting! Use at own Risk!  
------------------------------------------------------------------------  
+  
 Filepath: encryptThisFile.txt  <- if it's in the same directory as the main, this is enough  
 Save location: encryptThisFile.txt  <- if you want to save it in the same directory, write in the same as in Filepath  
 Aes Key(16, 24, 32 bytes): 1234567890123456  

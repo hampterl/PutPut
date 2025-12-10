@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func ChooseEnDecryption() {
+func ChooseHashing() {
 	scanner := bufio.NewScanner(os.Stdin)
 
 	if !scanner.Scan() {
@@ -20,7 +20,7 @@ func ChooseEnDecryption() {
 	for {
 		switch input {
 		case "1":
-			cli.UseAes256()
+			cli.UseSHA256()
 			return
 		case "2":
 			fmt.Println("Not yet implemented")

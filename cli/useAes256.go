@@ -11,8 +11,8 @@ import (
 
 func UseAes256() {
 	scanner := bufio.NewScanner(os.Stdin)
-	fmt.Print("|1|: Encrypt text with aes256\n|2|: Decrypt aes256 to text\n|3|: Encrypt File with aes256\n" +
-		"|4|: Decrypt File with aes256\n|0|: Return to main menu\n> ")
+	fmt.Print("|1|: Encrypt text with aes256\n|2|: Encrypt File with aes256\n\n|3|: Decrypt aes256 to text\n" +
+		"|4|: Decrypt File with aes256\n\n|0|: Return to main menu\n> ")
 
 	scanner.Scan()
 
@@ -24,10 +24,10 @@ func UseAes256() {
 			encryptAes()
 			return
 		case "2":
-			decryptAes()
+			encryptFile()
 			return
 		case "3":
-			encryptFile()
+			decryptAes()
 			return
 		case "4":
 			decryptFile()
@@ -36,8 +36,8 @@ func UseAes256() {
 			fmt.Println("Press enter to return to main menu...")
 			return
 		default:
-			fmt.Print("Invalid option! Choose from these options:\n|1|: Encrypt text with aes256\n|2|: Decrypt aes256 to text\n" +
-				"|3|: Encrypt File with aes256\n|4|: Decrypt File with aes256\n|0|: Return to main menu\n> ")
+			fmt.Print("Invalid option! Choose from these options:\n|1|: Encrypt text with aes256\n|2|: |2|: Encrypt File with aes256" +
+				"|3|: Decrypt aes256 to text\n|4|: Decrypt File with aes256\n\n|0|: Return to main menu\n> ")
 			scanner.Scan()
 			enDecode = strings.TrimSpace(scanner.Text())
 			break

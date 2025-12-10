@@ -26,7 +26,7 @@ func ChooseEnDecoding() {
 			fmt.Print("Press enter to return to main menu...")
 			return
 		default:
-			fmt.Print("Invalid option! Choose from these options:\n|1|: Base64\n|2|: Hex\n|0|: Back\n> ")
+			fmt.Print("Invalid option! Choose from these options:\n|1|: Base64\n|2|: Hex\n\n|0|: Back\n> ")
 			scanner.Scan()
 			input = strings.TrimSpace(scanner.Text())
 			break
