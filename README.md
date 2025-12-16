@@ -1,122 +1,242 @@
 # PutPut Multitool
-Multitool in golang by hampterl
 
-## Getting Started
+A command-line multitool written in **Go**.
 
-This is a command line interface tool. You have to run it in a terminal. E.g. cmd or powershell.
+> **Project status:** This tool is still under development.
 
-- You can download the latest release from the releases page.  
-- Since there isn't a release out yet, you have to build it yourself.  
+---
 
-- On Windows download the .zip file and extract it.  
-- Then you go to the directory where the main is and copy the filepath.  
-- Open a command prompt and type cd "filpath", press enter.  
-- Now you can run the tool with "go run main.go" or "go run ."  
-- You have to have golang installed. If you choose to run it this way.  
+## Table of Contents
 
-## Download
-Download latest release -> https://github.com/hampterl/PutPut/releases
+* [Overview](#overview)
+* [Features](#features)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Usage](#usage)
+
+    * [Encoding / Decoding](#encoding--decoding)
+    * [Encryption / Decryption (AES-256)](#encryption--decryption-aes-256)
+    * 
+* [Warnings & Disclaimer](#warnings--disclaimer)
+* [Author](#author)
+* [License](#license)
+
+---
+
+## Overview
+
+**PutPut Multitool** is a terminal based utility that provides simple encoding, decoding, encryption,
+and decryption features for text and files.
+
+The tool runs entirely in the command line (CMD, PowerShell, Bash, etc.) and is designed mainly for **learning and educational purposes**.
+
+---
 
 ## Features
-- En/decoding text (base64, hex)  
-- En/decrypting text (AES-256)  
-- En/decrypting files (AES-256)  
 
-After running the tool, you can see your options next to the logo.
-Since the tool is still in development, there are only 2 options to choose from.
-You have to type in the number that is in the brackets next to the option. These: |"Here the number"|, but only the number!
-Not the brackets. If you mistake the number, you can always type "0" to return to the main menu.
+* Encode / decode text
 
-## Instructions 
-### En/Decoding
-For En/Decoding text:  
-- Type in "1" to encode text.  
-- Type in "2" to decode text.  
+    * Base64
+    * Hex
+* Encrypt / decrypt text using AES-256
++ Hashing with SHA-256
 
-After that you have to type in the text you want to encode/decode.
-It will go through the process and tell you when to type something in and return the result.
-You can save the result to a file.  
-But you can look at the process here, this is an example:
+---
 
-|1|: Encode text with Base64  
-|2|: Decode Base64 to text  
-|0|: Return to main menu\n>  
-\> 1  
-\> Text to encode: Hello World!  
-\> Encoded text: SGVsbG8gV29ybGQh  
-\> Save txt into file? (y/n): n  
-\> NO file saved!  
-Press enter to return to main menu...  
+## Requirements
 
-### En/Decrypting
-For En/Decrypting, text and files:  
-- Type in "1" to encrypt.  
-- Type in "2" to decrypt.  
-- Type in "3" to encrypt a file.  
-- Type in "4" to decrypt a file.  
+* **Go (Golang)** installed (only required if building from source)
+* A terminal (CMD, PowerShell, Bash, etc.)
 
-For text:  
-After that you have to type in the text you want to encode/decode.
-It will go through the process and tell you when to type something in and return the result.
-You can save the result to a file.  
-But you can look at the process here, this is an example:
+---
 
-|1|: Encrypt text with aes256  
-|2|: Decrypt aes256 to text  
-|3|: Encrypt File with aes256  
-|4|: Decrypt File with aes256  
-|0|: Return to main menu\n>  
-\> 1  
-Aes Key(16, 24, 32 bytes): 1234567890123456  
-Text to encode: Hello World!  
-Encrypted text (hex): 2173213iuaisd01872e0d712312edboasd78   <- This is just an example of how it would look.  
-Save txt into file? (y/n): n  
-NO file saved!  
-Press enter to return to main menu...  
+## Installation
 
+### Option 1: Download Release (Recommended)
 
-For file encrypting:  
-You have to first type in the filepath WITH the ending e.g. .txt, .exe... Either you enter the absolute path or the relative path.
-Then you have to enter the outputpath (where it should save) and a key with either 16, 24 or 32 bytes.  
+Download the latest release from GitHub:
 
-DISCLAIMER AND WARNING:  
-This WILL encrypt the file you chose! IF you lose your key and overwrite your original, you will NOT be able to decrypt the file!  
-Never share your key with anyone! Make a backup before encrypting! Use at own Risk!  
+[https://github.com/hampterl/PutPut/releases](https://github.com/hampterl/PutPut/releases)
 
-Your encrypted file will be saved where you told it to, with .enc at the end. So it won't automatically overwrite the original.  
-Here an example of how it would look:  
-|1|: Encrypt text with aes256  
-|2|: Decrypt aes256 to text  
-|3|: Encrypt File with aes256  
-|4|: Decrypt File with aes256  
-|0|: Return to main menu\n>
-\> 3  
+> Note: If no release is available yet, build the tool from source.
 
-Instructions in README.md!  
-DISCLAIMER AND WARNING:  
-This WILL encrypt the file you chose! IF you lose your key and overwrite your original, you will NOT be able to decrypt the file!  
-Never share your key with anyone! Make a backup before encrypting! Use at own Risk!  
-  
-Filepath: encryptThisFile.txt  <- if it's in the same directory as the main, this is enough  
-Save location: encryptThisFile.txt  <- if you want to save it in the same directory, write in the same as in Filepath  
-Aes Key(16, 24, 32 bytes): 1234567890123456  
-File encrypted! SAVE YOUR KEY!  
-Press enter to return to main menu...  
+---
 
-The encrypted file will appear in the save location directory.  
-*IMPORTANT!* You have to add the name and ending of the file in both fields, 
-or it will encrypt the directory, or save it without a name.
+### Option 2: Build from Source
+
+1. Download the repository as a `.zip` file and extract it
+2. Open a terminal (CMD or PowerShell on Windows)
+3. Navigate to the project directory:
+
+```bash
+cd "path/to/PutPut/cmd"
+```
+
+4. Run the tool:
+
+```bash
+go run main.go
+```
+
+or
+
+```bash
+go run .
+```
+
+---
+
+## Usage
+
+After starting the tool, a menu is displayed with numbered options.
+
+**Only enter the number**, not the brackets.
+
+If you enter a wrong option, type `0` to return to the main menu.
+
+---
+
+## Encoding / Decoding
+
+### Menu Options
+
+```
+|1| Encode
+|2| Encrypt/Decrypt
+|3| Hashing
+|0| Return to main menu
+```
+
+### Example (Base64 Encoding)
+
+### Menu Options
+
+```
+|1| Encode text with Base64
+|2| Encode file with Base64
+
+|3| Decode Base64 text
+|4| Decode file with Base64
+
+|0| Return to main menu
+```
+
+### Text Encryption Example
+
+```
+> 1
+Text to encode: Hello World!
+Encoded text: SGVsbG8gV29ybGQh
+Save txt into file? (y/n): n
+NO file saved!
+Press enter to return to main menu...
+```
+
+You may optionally save the result to a file.
+
+---
+
+## Encryption / Decryption (AES-256)
+
+### Menu Options
+
+```
+|1| Encrypt text with AES-256
+|2| Encrypt file with AES-256
+
+|3| Decrypt AES-256 text
+|4| Decrypt file with AES-256
+
+|0| Return to main menu
+```
+
+### Text Encryption Example
+
+```
+> 1
+AES Key (16, 24, 32 bytes): 1234567890123456
+Text to encrypt: Hello World!
+Encrypted text (hex): 2173213iuaisd01872e0d712312edboasd78
+Save txt into file? (y/n): n
+NO file saved!
+Press enter to return to main menu...
+```
+
+> The AES key **must be exactly 16, 24, or 32 bytes long**.
+
+---
+
+## File Encryption / Decryption
+
+### How It Works
+
+* You must provide:
+
+    * With base64:
+    * Input file path (absolute or relative) **including file name and extension**
+    * Output path **including file name and extension**
+
+    * With Aes:
+    * Input file path (absolute or relative) **including file name and extension**
+    * Output path **including file name and extension**
+    * AES key (16 / 24 / 32 bytes)
+
+* Encrypted files are saved with `.enc` appended
+
+* The original file is **not overwritten automatically**
+
+---
+
+### File Encryption Example
+
+```
+> 3
+Filepath: encryptThisFile.txt
+Save location: encryptThisFile.txt
+AES Key (16, 24, 32 bytes): 1234567890123456
+File encrypted! SAVE YOUR KEY!
+Press enter to return to main menu...
+```
+
+> **IMPORTANT:**
+>
+> * Always include the file name **and extension**
+> * Otherwise, you may encrypt a directory or create an invalid output file
+
+---
+
+## Warnings & Disclaimer
+
+**READ CAREFULLY**
+
+* This tool **will encrypt files you choose to encrypt**
+* If you lose your key, **decryption is impossible**
+* Never share your encryption key
+* Always create backups before encrypting files
+
+**USE AT YOUR OWN RISK**
+
+---
 
 ## Legal Disclaimer
-USE FOR EDUCATIONAL PURPOSES ONLY!
 
-NEVER USE THIS TO ENCRYPT SENSITIVE DATA!
+* This project is for **educational purposes only**
+* **DO NOT** use this tool to encrypt sensitive or critical data
+* **The developer is NOT responsible** for data loss, damage, or misuse
 
-THE DEVELOPER OF THIS TOOL IS NOT RESPONSIBLE FOR ANY DAMAGE BY MISSUSE! SEE LICENSE FOR MORE INFORMATION!
+See the license for more information.
+
+---
 
 ## Author
-hampterl on github
+
+**hampterl**
+GitHub: [https://github.com/hampterl](https://github.com/hampterl)
+
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.
+
+See the [LICENSE](LICENSE) file for details.
